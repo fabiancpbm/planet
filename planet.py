@@ -20,8 +20,8 @@ dy = 0
 dz = 0
 
 # ball
-n1 = 150
-n2 = 150
+n1 = 100
+n2 = 100
 r = 3
 a = 0
 
@@ -83,13 +83,12 @@ def f(i, j):
 
 def DrawGLScene():
     global xrot, yrot, zrot, texture
-
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)    
     glLoadIdentity()                   
     glClearColor(0.0,0.0,0.0,0.0)            
     glTranslatef(0.0,0.0,-5.0)
-    glRotatef(xrot,1.0,0.0,0.0)          
-    glRotatef(yrot,0.0,1.0,0.0)           
+    glRotatef(xrot + 170,1.0,0.0,0.0)          
+    glRotatef(yrot + 200,0.0,1.0,0.0)           
     glRotatef(zrot,0.0,0.0,1.0) 
     
     glBindTexture(GL_TEXTURE_2D, texture[0])
@@ -159,7 +158,7 @@ def main():
     
     # When we are doing nothing, redraw the scene.
     glutIdleFunc(DrawGLScene)
-    
+
     # Register the function called when our window is resized.
     glutReshapeFunc(ReSizeGLScene)
     
